@@ -1,0 +1,7 @@
+FROM 3dpro/webpy:latest
+RUN mkdir /product
+RUN mkdir /product/conf
+RUN pip install http
+ADD product_v1.py /product/product_v1.py
+ADD conf/product.conf /product/conf/product.conf
+CMD ["/usr/bin/python", "/product/product_v1.py"]
