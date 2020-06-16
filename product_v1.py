@@ -1,5 +1,5 @@
 import web
-import http.client, urllib.parse
+import httplib
 import json
 import configparser
 import os
@@ -18,7 +18,7 @@ class ProductList:
             config.read(os.path.join(dirname, "conf", "product.conf"))
             servicename = config.get("stock", "service")
             serviceport = config.get("stock", "port")
-            conn = http.client.HTTPConnection(servicename + ":" + serviceport, timeout=10)            
+            conn = httplib.HTTPConnection(servicename + ":" + serviceport, timeout=10)            
             conn.request("GET", "/stock/list")
             res = conn.getresponse()
             content = json.loads(res.read())
