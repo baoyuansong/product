@@ -1,0 +1,22 @@
+$def with (content)
+<html>
+<head>
+<title>商品列表</title>
+<style>
+    .box{
+         width:500px,
+         margin: 0 auto;
+         background-color: bisque;
+           }
+</style>
+</head>
+<body style=“text-align:center;”>
+<div class="box">
+<h2>商品列表V1</h2>
+<ol>
+$for item in content: 
+    <li>$item</li>
+</ol>
+</div>
+</body>
+</html>
