@@ -3,7 +3,7 @@ RUN mkdir /product
 RUN mkdir /product/conf
 RUN mkdir /product/templates
 RUN pip install http
-ADD product_v1.py /product/product_v1.py
+ADD conf/product.conf /product/conf/product.conf
 ADD templates/product_list_v1.html /product/templates/product_list_v1.html
 ADD product_v1.py /product/product_v1.py
 CMD ["/usr/bin/python", "/product/product_v1.py"]
