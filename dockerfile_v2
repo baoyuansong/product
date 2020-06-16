@@ -1,7 +1,9 @@
 FROM 3dpro/webpy:latest
 RUN mkdir /product
 RUN mkdir /product/conf
+RUN mkdir /product/templates
 RUN pip install http
 ADD product_v2.py /product/product_v2.py
 ADD conf/product.conf /product/conf/product.conf
+ADD templates/product_list_v2.html /product/templates/product_list_v2.html
 CMD ["/usr/bin/python", "/product/product_v2.py"]
