@@ -10,11 +10,11 @@ urls = (
 )
 
 app = web.application(urls, globals())
-render = web.template.render('templates/')
+dirname, filename = os.path.split(os.path.abspath(sys.argv[0]))
+render = web.template.render(os.path.join(dirname, "templates"))
 class ProductList:
     def GET(self):
         config = configparser.ConfigParser()
-        dirname, filename = os.path.split(os.path.abspath(sys.argv[0]))
         config.read(os.path.join(dirname, "conf", "product.conf"))
         servicename = config.get("stock", "service")
         serviceport = config.get("stock", "port")
